@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useHistory } from "react-router";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { loginService, createStorageSync } from "../Services";
 
 const Login = () => {
-  let navigate: NavigateFunction = useNavigate();
+  const history = useHistory()
 
   const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
@@ -36,7 +36,8 @@ const Login = () => {
       (resp) => {
         console.log(resp);
         createStorageSync("user-token", JSON.stringify(resp.token));
-          navigate("/home");
+          // navigate("/home");
+          history.push('/')
           window.location.reload();
         
       },

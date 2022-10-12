@@ -10,7 +10,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 function NavbarComponent() {
   return (
-    <Navbar bg="dark" expand="xl">
+    <Navbar bg="dark" expand="xl" sticky="top">
       <Container fluid className='d-flex  justify-content-center'>
         <Row className='col-8 d-flex'>
             

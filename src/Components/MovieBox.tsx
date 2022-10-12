@@ -1,5 +1,8 @@
 import { IMG_URL } from "../Services";
 import { map } from "lodash";
+import { useHistory } from "react-router";
+
+
 interface Props {
   movie: Array<{
     id: string;
@@ -12,9 +15,11 @@ interface Props {
 }
 
 const MovieBox = ({ movie }: Props) => {
+  const history = useHistory()
+
   return (          
     <div className="row row-cols-xs-1 row-cols-md-2 row-cols-lg-3  g-4">
-      {map(movie, (item, index) => {
+      {map(movie, (item) => {
         return (
           <div key={item.id} className="col my-3">
             <div className="card h-100 bg-dark">
@@ -30,7 +35,7 @@ const MovieBox = ({ movie }: Props) => {
                 </p>
 
               </div>
-                <button type="button" className="btn btn-success btn-rounded">More info</button>
+                <button type="button" className="btn btn-success btn-rounded" onClick={() => history.push(`/movies/${item.id}`)}>More info</button>
              
             </div>
           </div>
