@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import {map} from 'lodash'
-import { getStorageSync, createStorageSync } from "../Services";
+import { getStorageSync } from "../Services";
 import { getMovieAPI, getMovieRecomendationAPI } from "../Services/request";
 import { IMG_URL } from "../Services";
 import MovieBox from "../Components/MovieBox";
 import LottieAnimated from "../Components/Animation";
-
-
 
 import { ToggleFavorite } from "../Services/utils";
 
@@ -23,14 +20,6 @@ type MovieData = {
   poster_path: string;
 };
 
-interface MyObj {
-  id: string;
-  title: string;
-  tagline: string;
-  overview: string;
-  release_date: string;
-  poster_path: string;
-}
 
 const Details = () => {
   //initial Data
@@ -66,7 +55,6 @@ const [favData, setFavData] = useState([] as string[])
     let obj  = JSON.parse(favList!)
     setFavData(obj)
   }, [])
-  
   const handleFavorites = (data:any) =>{
     ToggleFavorite(data)
   }

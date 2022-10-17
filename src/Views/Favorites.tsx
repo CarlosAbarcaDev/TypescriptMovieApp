@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
-
-
-
 import MovieBox from "../Components/MovieBox";
 import LottieAnimated from "../Components/Animation";
 

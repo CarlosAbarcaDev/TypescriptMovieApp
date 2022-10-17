@@ -15,3 +15,8 @@ export const getMovieRecomendationAPI = (id: string) => {
   return axios.get(url);
 };
 
+export const getSearchMovieAPI = (search: string) => {
+  const url = `${API_URL_MOVIES}/search/movie?api_key=${API_KEY}&query=${search}&page=1`;
+  return axios.get(url);
+};
+
