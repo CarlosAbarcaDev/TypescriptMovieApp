@@ -7,6 +7,7 @@ import NavbarComponent from "./Components/Navbar";
 import Login from "./Views/Login";
 import Home from "./Views/Home";
 import Details from "./Views/Details";
+import Favorites from "./Views/Favorites";
 
 
 function App() {
@@ -14,7 +15,6 @@ function App() {
   const [logged, setLogged] = useState<boolean>(false);
   useEffect(() => {
     const userToken = getStorageSync("user-token");
-    console.log(userToken);
     if (userToken) {
       setLogged(true);
     } else {
@@ -29,7 +29,9 @@ function App() {
         <NavbarComponent />
         <Switch>
           <Route exact path={"/"} component={Home} />
+          <Route exact path={"/favorite-list"} component={Favorites} />
           <Route exact path={"/movies/:id"} component={Details} />
+
           <Redirect to={"/"} />
         </Switch>
         </>
